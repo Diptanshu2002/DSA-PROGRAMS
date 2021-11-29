@@ -14,6 +14,15 @@ void createStack(struct Stack *st){
     st->S = (int *)malloc(st->length*sizeof(int));
 }
 
+void pop(struct Stack *st){
+    if(st->top<0){
+        printf("\nStack Underflow");
+        return;
+    }
+    int popped = st->S[st->top--];
+    printf("\n%d is popped out ",popped);
+}
+
 void push(struct Stack *st , int x){
     if(st->top >= st->length-1){
         printf("\n-----Stack Overflow-----");
@@ -39,9 +48,7 @@ int main(){
     createStack(&st);
     push(&st,25);
     push(&st,24);
-    push(&st,23);
-    push(&st,22);
-    push(&st,21);
+    pop(&st);
     display(&st);
 }
 
