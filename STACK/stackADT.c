@@ -13,16 +13,37 @@ void createStack(struct Stack *st){
     st->top = -1;
     st->S = (int *)malloc(st->length*sizeof(int));
 }
+/* -----ABOVE CODES ARE COMPULSORY FOR THE STACK TO WORK PROPERLY----- */
 
+/*IS EMPTY FUNC */
+void isEmpty(struct Stack *st){
+    if(st->top<0){
+        printf("\nThe stack is empty ❌");
+        return;
+    }
+    printf("The stack is not empty 😃");
+}
+
+/*IS FULL FUNC */
+void isFull(struct Stack *st){
+    if(st->top == st->length-1){
+        printf("\nThe stack is full 🥂");
+        return;
+    }
+    printf("The stack is not full 😃");
+}
+
+/* POPPING ELEMENT OUT OF THE STACK AND PRINTING THE POPPED VALUE */
 void pop(struct Stack *st){
     if(st->top<0){
-        printf("\nStack Underflow");
+        printf("\n-----Stack Underflow-----");
         return;
     }
     int popped = st->S[st->top--];
     printf("\n%d is popped out ",popped);
 }
 
+/* PUSHING INTO THE STACK AT TOP */
 void push(struct Stack *st , int x){
     if(st->top >= st->length-1){
         printf("\n-----Stack Overflow-----");
@@ -32,6 +53,7 @@ void push(struct Stack *st , int x){
     st->S[st->top] = x;
 } 
 
+/* DISPLAYING THE DATA INSIDE THE STACK */
 void display(struct Stack *st){
     int first;
     first = st->top;
@@ -48,7 +70,7 @@ int main(){
     createStack(&st);
     push(&st,25);
     push(&st,24);
-    pop(&st);
+    isFull(&st);
     display(&st);
 }
 
