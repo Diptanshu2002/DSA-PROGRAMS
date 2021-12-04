@@ -37,6 +37,13 @@ void display(queue *que){
     
 }
 
+//IS EMPTY FUNCTION
+void isEmpty(queue *que){
+    if(que->first == que->rear)
+            printf("The queue is empty");
+    else
+            printf("The queue is not empty");
+}   
 // MAIN FUNCTION
 int main(){
     queue q1;
