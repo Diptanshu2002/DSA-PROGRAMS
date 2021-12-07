@@ -73,3 +73,4 @@ int main(){
     eqBinary(&st);
     return 0;
 }
+
